@@ -41,7 +41,7 @@ lesPetitesLoutres_maj_epsilon(E, Em, Ed) :-
 
 lesPetitesLoutres_maj_epsilon(_, _, _).
 
-% Mise à jour Q-learning
+% Mise Ã  jour Q-learning
 lesPetitesLoutres_ajuster_q(S,A,R,S2):-
   lesPetitesLoutres_get_q(S,A,Q0), lesPetitesLoutres_actions(AList),
   findall(Qn,(member(A2,AList),lesPetitesLoutres_get_q(S2,A2,Qn)),Qs), max_list(Qs,MaxQ),
