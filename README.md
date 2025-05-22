@@ -15,53 +15,6 @@ Ce projet a été réalisé dans le cadre d’un cours de L2 MIASHS (Université
 
 > *« Ce projet a été un véritable déclic : comprendre et implémenter l’apprentissage par renforcement m’a confirmé ma vocation pour l’intelligence artificielle. »*
 
-## Structure du dépôt
-
-```
-├── code/                     # Contient les fichiers Prolog
-│   ├── agent_flaunt.pl      # Prédicat principal joue/3 et prédicats Nash et Q‑learning
-│   ├── nash_strategy.pl     # Implémentation de l’équilibre de Nash (stratégie mixte)
-│   ├── q_learning.pl        # Implémentation des prédicats dynamiques et apprentissage
-│   └── utils.pl             # Prédicats utilitaires (calcul de score, historique, etc.)
-├── tests/                    # Scénarios et script de tournoi
-│   ├── tournament_manager.pl
-│   └── sample_matches.pl
-└── README.md                 # Ce fichier
-```
-
-## Installation
-
-1. Installer [SWI‑Prolog](https://www.swi-prolog.org/) (version recommandée : >= 8.4).
-2. Cloner ce dépôt :
-
-   ```bash
-   git clone https://github.com/votre‑repo/flaunt‑prolog.git
-   cd flaunt-prolog
-   ```
-
-## Utilisation
-
-Lancement du tournoi :
-
-```bash
-swipl -s code/agent_flaunt.pl tests/tournament_manager.pl
-```
-
-Les matchs s’enchaînent automatiquement entre plusieurs stratégies (aléatoire, tit-for-tat, Nash, Q‑learning, etc.). Les scores sont affichés à l’écran.
-
-### Exécuter une partie isolée
-
-```prolog
-?- consult(code/agent_flaunt.pl).
-?- joue(notre_nom, [], Coup).
-```
-
-Le prédicat `joue/3` prend  :
-
-* le nom de l’équipe (atom),
-* la liste des coups précédents sous la forme `[[MonCoup, CoupAdversaire] | Reste]`,
-* une variable libre qui sera instanciée à un entier 1..5.
-
 ## Fonctionnalités
 
 1. **Stratégie Nash** : implémentée en stratégie mixte, calculée a priori puis jouée via un tirage pondéré.
